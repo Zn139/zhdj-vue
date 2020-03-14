@@ -1,29 +1,93 @@
 <template>
-    <div>
-      <Header></Header>
-      <div class="word">
-        <span>张宁</span>
-      </div>
-    </div>
+  <li class="Aiticle-li">
+  		<div class="Aiticle-border">
+  		<a class="Aiticle-a" href="">
+  			<img src="../../assets/123.jpg" alt="">
+  			<p class="Aiticle-title">{{article.title}}</p>
+  		</a>
+  		<div class="Aiticle-msg">
+  			<span class="Artile-time">{{article.time}}</span>
+  			<span class="Aiticle-author">{{article.author}}</span>
+  			<span class="Aiticle-province">{{article.province}}</span>
+  			<span id="Aiticle-common">评论:{{article.common_num}}</span>
+  		</div>
+  		<div class="Article-news"><span>{{article.new}}</span></div>
+  		</div>
+  	</li>
 </template>
 
 <script>
-  import Header from '@/components/common/Header'
   export default {
-    name: "NewPage",
-    components: {
-      Header
-    }
+    props: {
+      article: Object
+    },
   }
 </script>
 
-<style scoped>
-  .word {
-    font-size: 40px;
-    font-weight: bolder;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+<style>
+  .Aiticle-a{
+    text-decoration:none
+  }
+  img{
+  	width: 46px;
+  	height: 46px;
+  	float:left;/*图片向左浮动*/
+  	padding-right: 16px;
+  }
+  .Aiticle-title{
+  	width: 900px;
+  	color: black;
+  	/* #009688*/
+  }
+  .Aiticle-title:hover{
+  	color: #009688;
+  }
+  .Aiticle-border{
+  	position: relative;
+  	margin: 0px;
+  	padding: 0px;
+  }
+  .Aiticle-msg{
+  	position: absolute;
+  	width: 1110px;
+  	top: 27px;
+  	left: 60px;
+  }
+  .Aiticle-msg span{
+  	font-size: 12px;
+  	color: white;
+  	padding: 2px 15px 2px 5px;
+  	border-radius: 3px;
+  }
+  .Artile-time{
+  	background-color:#1E9FFF;
+
+  }
+  .Aiticle-author{
+  	background-color:#FFB800;
+
+  }
+  .Aiticle-province{
+  	background-color: #009688;
+
+  }
+
+  li .Article-news{
+  	position: absolute;/*父级元素是li下层div，*/
+  	top:0px;
+  	right: 16px;
+  	border-radius: 2px;
+  	padding: 0px 6px 2px 6px;
+  	background-color:#FF5722;
+  	font-size: 13px;
+  	color: white;
+
+  }
+  #Aiticle-common{/*用class设置之后的属性可以用id来覆盖*/
+  	color: grey;/*字体颜色*/
+  	font-size: 13px;
+  	position: absolute;/*父级元素是Aiticle-msg*/
+  	right: 4px;
+  	letter-spacing: 1px;/*文本间距*/
   }
 </style>
